@@ -103,29 +103,34 @@
   <!-- HERO HEADER SECTION -->
   <header class="relative bg-forest-950 text-white overflow-hidden">
     
-    <!-- REMPLACER L'IMAGE DE COUVERTURE ICI : changez le lien dans src="..." ci-dessous -->
-    <div class="absolute inset-0 z-0 opacity-40 mix-blend-overlay">
+    <!-- COVER IMAGE WITH CLICKABLE GALLERY OVERLAY -->
+    <div onclick="openGallery('hero')" class="absolute inset-0 z-0 opacity-40 mix-blend-overlay cursor-pointer group">
       <img src="https://images.unsplash.com/photo-1549877452-9c387954fbc2?auto=format&fit=crop&w=1600&q=80" 
            alt="Château de Trakai Lituanie" 
-           class="w-full h-full object-cover" 
+           class="w-full h-full object-cover group-hover:scale-105 transition duration-700" 
            onerror="this.src='https://placehold.co/1600x900/14532d/ffffff?text=Lituanie+Couverture'">
+      <div class="absolute inset-0 bg-forest-950/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-2 text-white font-semibold text-sm">
+        <span class="bg-slate-900/80 px-4 py-2 rounded-full border border-amber-400/40 flex items-center gap-2">
+          <i class="fa-solid fa-images text-amber-400"></i> Voir les panoramas de Lituanie
+        </span>
+      </div>
     </div>
     
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36 flex flex-col items-start">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36 flex flex-col items-start pointer-events-none">
       
-      <span class="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-500/40 text-amber-300 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 backdrop-blur-sm">
+      <span class="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-500/40 text-amber-300 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 backdrop-blur-sm pointer-events-auto">
         <i class="fa-solid fa-location-dot"></i> Europe du Nord • Pays Balte
       </span>
       
-      <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-extrabold text-amber-50 tracking-tight leading-tight max-w-4xl mb-6">
+      <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-extrabold text-amber-50 tracking-tight leading-tight max-w-4xl mb-6 pointer-events-auto">
         Bienvenue en Lituanie, la magie balte préservée.
       </h1>
 
-      <p class="text-slate-200 text-lg sm:text-xl max-w-2xl font-light mb-8 leading-relaxed">
+      <p class="text-slate-200 text-lg sm:text-xl max-w-2xl font-light mb-8 leading-relaxed pointer-events-auto">
         Des châteaux médiévaux posés sur des lacs limpides aux dunes géantes de la Baltique, découvrez une destination enchantée aux mille légendes.
       </p>
 
-      <div class="flex flex-wrap gap-4">
+      <div class="flex flex-wrap gap-4 pointer-events-auto">
         <a href="#presentation" class="bg-amber-600 hover:bg-amber-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition flex items-center gap-2 text-sm sm:text-base">
           <span>Découvrir la Région</span>
           <i class="fa-solid fa-chevron-right text-xs"></i>
@@ -136,7 +141,7 @@
       </div>
 
       <!-- Quick Stats bar -->
-      <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-4xl pt-8 border-t border-white/10 text-center sm:text-left">
+      <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-4xl pt-8 border-t border-white/10 text-center sm:text-left pointer-events-auto">
         <div>
           <p class="text-3xl font-serif font-bold text-amber-400">Vilnius</p>
           <p class="text-xs text-slate-300 uppercase tracking-wider font-medium">Capitale baroque</p>
@@ -179,14 +184,19 @@
         
         <!-- Main Card: Vilnius -->
         <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group">
-          <div class="relative h-72 sm:h-80 overflow-hidden">
-            <!-- REMPLACER L'IMAGE DE VILNIUS ICI : changez le lien dans src="..." ci-dessous -->
+          <div onclick="openGallery('vilnius')" class="relative h-72 sm:h-80 overflow-hidden cursor-pointer">
             <img src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=1000&q=80" 
                  alt="Ville de Vilnius" 
                  class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
                  onerror="this.src='https://placehold.co/800x600/14532d/ffffff?text=Vilnius'">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
-            <div class="absolute bottom-6 left-6 right-6">
+            <!-- Gallery overlay indicator -->
+            <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+              <span class="bg-slate-900/90 text-amber-300 font-semibold text-xs sm:text-sm px-4 py-2 rounded-full border border-amber-500/40 shadow-lg flex items-center gap-2">
+                <i class="fa-solid fa-images text-amber-400"></i> Galerie Vilnius (4 photos)
+              </span>
+            </div>
+            <div class="absolute bottom-6 left-6 right-6 pointer-events-none">
               <span class="bg-amber-500 text-slate-950 font-bold text-xs px-2.5 py-1 rounded-md mb-2 inline-block">Ville Principale & Capitale</span>
               <h3 class="font-serif text-3xl font-bold text-white">Vilnius, la Perle Baroque</h3>
             </div>
@@ -212,17 +222,21 @@
         <div class="lg:col-span-5 flex flex-col gap-6">
           
           <!-- Nature Highlight 1 -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-md p-5 flex gap-4 items-center hover:border-forest-800/40 transition group">
+          <div onclick="openGallery('courlande')" class="bg-white rounded-2xl border border-slate-200/80 shadow-md p-5 flex gap-4 items-center hover:border-forest-800/40 transition group cursor-pointer">
             <div class="relative w-32 h-32 rounded-xl overflow-hidden flex-shrink-0">
-              <!-- REMPLACER L'IMAGE DE COURLANDE ICI : changez le lien dans src="..." ci-dessous -->
               <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80" 
                    alt="Isthme de Courlande" 
                    class="w-full h-full object-cover group-hover:scale-110 transition duration-300" 
                    onerror="this.src='https://placehold.co/400x400/166534/ffffff?text=Courlande'">
+              <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center justify-center text-white text-xs">
+                <i class="fa-solid fa-images text-amber-300 text-lg"></i>
+              </div>
             </div>
             <div class="space-y-1">
-              <span class="text-[11px] font-bold text-amber-700 uppercase tracking-wider">Paysages Maritimes</span>
-              <h4 class="font-serif font-bold text-lg text-slate-900">L'Isthme de Courlande</h4>
+              <span class="text-[11px] font-bold text-amber-700 uppercase tracking-wider flex items-center gap-1">
+                <i class="fa-solid fa-camera"></i> 4 Photos
+              </span>
+              <h4 class="font-serif font-bold text-lg text-slate-900 group-hover:text-amber-700 transition">L'Isthme de Courlande</h4>
               <p class="text-xs text-slate-600 leading-relaxed">
                 De spectaculaires dunes de sable fin bordées par les eaux calmes de la lagune et la mer Baltique.
               </p>
@@ -230,17 +244,21 @@
           </div>
 
           <!-- Nature Highlight 2 -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-md p-5 flex gap-4 items-center hover:border-forest-800/40 transition group">
+          <div onclick="openGallery('trakai_lakes')" class="bg-white rounded-2xl border border-slate-200/80 shadow-md p-5 flex gap-4 items-center hover:border-forest-800/40 transition group cursor-pointer">
             <div class="relative w-32 h-32 rounded-xl overflow-hidden flex-shrink-0">
-              <!-- REMPLACER L'IMAGE DE TRAKAI NORMALE ICI : changez le lien dans src="..." ci-dessous -->
               <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=500&q=80" 
                    alt="Lacs de Trakai" 
                    class="w-full h-full object-cover group-hover:scale-110 transition duration-300" 
                    onerror="this.src='https://placehold.co/400x400/166534/ffffff?text=Lacs+Trakai'">
+              <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center justify-center text-white text-xs">
+                <i class="fa-solid fa-images text-amber-300 text-lg"></i>
+              </div>
             </div>
             <div class="space-y-1">
-              <span class="text-[11px] font-bold text-amber-700 uppercase tracking-wider">Parcs & Lacs</span>
-              <h4 class="font-serif font-bold text-lg text-slate-900">Le Parc National de Trakai</h4>
+              <span class="text-[11px] font-bold text-amber-700 uppercase tracking-wider flex items-center gap-1">
+                <i class="fa-solid fa-camera"></i> 4 Photos
+              </span>
+              <h4 class="font-serif font-bold text-lg text-slate-900 group-hover:text-amber-700 transition">Le Parc National de Trakai</h4>
               <p class="text-xs text-slate-600 leading-relaxed">
                 Une région aux 200 lacs splendides entourés de denses forêts de pins verdoyantes.
               </p>
@@ -276,7 +294,7 @@
         <span class="text-amber-700 font-bold text-xs uppercase tracking-widest bg-amber-100 px-3 py-1 rounded-full inline-block mb-3">Partie 2</span>
         <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest-950 mb-4">Les Activités Intéressantes</h2>
         <p class="text-slate-600 text-base sm:text-lg">
-          Découvrez la diversité des expériences lituaniennes : châteaux d'eau, rituels culturels et aventures en pleine nature.
+          Découvrez la diversité des expériences lituaniennes : châteaux d'eau, rituels culturels et aventures en pleine nature. (Cliquez sur une image pour ouvrir la galerie)
         </p>
       </div>
 
@@ -302,13 +320,18 @@
         <!-- Activity 1 -->
         <div class="activity-card bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group" data-category="visite">
           <div>
-            <div class="relative h-56 overflow-hidden">
-              <!-- REMPLACER L'IMAGE DU CHÂTEAU DE TRAKAI ICI : changez le lien dans src="..." ci-dessous -->
+            <div onclick="openGallery('trakai_castle')" class="relative h-56 overflow-hidden cursor-pointer">
               <img src="https://images.unsplash.com/photo-1549877452-9c387954fbc2?auto=format&fit=crop&w=600&q=80" 
                    alt="Château de Trakai" 
                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
                    onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Chateau+Trakai'">
-              <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow">Visite</span>
+              <span class="absolute top-4 left-4 z-10 bg-amber-500 text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow">Visite</span>
+              <!-- Hover Overlay -->
+              <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                <span class="bg-slate-900/90 text-amber-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-400/40 flex items-center gap-1.5">
+                  <i class="fa-solid fa-images"></i> 4 Photos
+                </span>
+              </div>
             </div>
             <div class="p-6">
               <div class="flex items-center text-xs text-amber-700 font-semibold mb-2 gap-3">
@@ -330,13 +353,18 @@
         <!-- Activity 2 -->
         <div class="activity-card bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group" data-category="visite">
           <div>
-            <div class="relative h-56 overflow-hidden">
-              <!-- REMPLACER L'IMAGE DE LA VIEILLE VILLE ICI : changez le lien dans src="..." ci-dessous -->
+            <div onclick="openGallery('vilnius')" class="relative h-56 overflow-hidden cursor-pointer">
               <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" 
                    alt="Vieille Ville de Vilnius" 
                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
                    onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Vilnius+Vieille+Ville'">
-              <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow">Visite</span>
+              <span class="absolute top-4 left-4 z-10 bg-amber-500 text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow">Visite</span>
+              <!-- Hover Overlay -->
+              <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                <span class="bg-slate-900/90 text-amber-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-400/40 flex items-center gap-1.5">
+                  <i class="fa-solid fa-images"></i> 4 Photos
+                </span>
+              </div>
             </div>
             <div class="p-6">
               <div class="flex items-center text-xs text-amber-700 font-semibold mb-2 gap-3">
@@ -358,13 +386,18 @@
         <!-- Activity 3 -->
         <div class="activity-card bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group" data-category="culture">
           <div>
-            <div class="relative h-56 overflow-hidden">
-              <!-- REMPLACER L'IMAGE DE LA COLLINE DES CROIX ICI : changez le lien dans src="..." ci-dessous -->
+            <div onclick="openGallery('colline_croix')" class="relative h-56 overflow-hidden cursor-pointer">
               <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=600&q=80" 
                    alt="Colline des Croix" 
                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
                    onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Colline+des+Croix'">
-              <span class="absolute top-4 left-4 bg-purple-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow">Culture</span>
+              <span class="absolute top-4 left-4 z-10 bg-purple-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow">Culture</span>
+              <!-- Hover Overlay -->
+              <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                <span class="bg-slate-900/90 text-amber-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-400/40 flex items-center gap-1.5">
+                  <i class="fa-solid fa-images"></i> 4 Photos
+                </span>
+              </div>
             </div>
             <div class="p-6">
               <div class="flex items-center text-xs text-amber-700 font-semibold mb-2 gap-3">
@@ -386,13 +419,18 @@
         <!-- Activity 4 -->
         <div class="activity-card bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group" data-category="culture">
           <div>
-            <div class="relative h-56 overflow-hidden">
-              <!-- REMPLACER L'IMAGE DE LA GASTRONOMIE ICI : changez le lien dans src="..." ci-dessous -->
+            <div onclick="openGallery('gastronomie')" class="relative h-56 overflow-hidden cursor-pointer">
               <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" 
                    alt="Dégustation Cepelinai" 
                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
                    onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Gastronomie+Lituanienne'">
-              <span class="absolute top-4 left-4 bg-purple-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow">Culture</span>
+              <span class="absolute top-4 left-4 z-10 bg-purple-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow">Culture</span>
+              <!-- Hover Overlay -->
+              <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                <span class="bg-slate-900/90 text-amber-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-400/40 flex items-center gap-1.5">
+                  <i class="fa-solid fa-images"></i> 4 Photos Gastronomie
+                </span>
+              </div>
             </div>
             <div class="p-6">
               <div class="flex items-center text-xs text-amber-700 font-semibold mb-2 gap-3">
@@ -414,13 +452,18 @@
         <!-- Activity 5 -->
         <div class="activity-card bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group" data-category="sport">
           <div>
-            <div class="relative h-56 overflow-hidden">
-              <!-- REMPLACER L'IMAGE DU VÉLO SUR L'ISTHME ICI : changez le lien dans src="..." ci-dessous -->
+            <div onclick="openGallery('velo_courlande')" class="relative h-56 overflow-hidden cursor-pointer">
               <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" 
                    alt="Isthme de Courlande Vélo" 
                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
                    onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Nature+Curonian+Spit'">
-              <span class="absolute top-4 left-4 bg-emerald-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow">Sport & Nature</span>
+              <span class="absolute top-4 left-4 z-10 bg-emerald-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow">Sport & Nature</span>
+              <!-- Hover Overlay -->
+              <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                <span class="bg-slate-900/90 text-amber-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-400/40 flex items-center gap-1.5">
+                  <i class="fa-solid fa-images"></i> 4 Photos
+                </span>
+              </div>
             </div>
             <div class="p-6">
               <div class="flex items-center text-xs text-amber-700 font-semibold mb-2 gap-3">
@@ -442,13 +485,18 @@
         <!-- Activity 6 -->
         <div class="activity-card bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group" data-category="sport">
           <div>
-            <div class="relative h-56 overflow-hidden">
-              <!-- REMPLACER L'IMAGE DE LA MONTGOLFIÈRE ICI : changez le lien dans src="..." ci-dessous -->
+            <div onclick="openGallery('montgolfiere')" class="relative h-56 overflow-hidden cursor-pointer">
               <img src="https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?auto=format&fit=crop&w=600&q=80" 
                    alt="Vol en montgolfière" 
                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
                    onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Montgolfiere+Vilnius'">
-              <span class="absolute top-4 left-4 bg-emerald-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow">Sport & Nature</span>
+              <span class="absolute top-4 left-4 z-10 bg-emerald-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow">Sport & Nature</span>
+              <!-- Hover Overlay -->
+              <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                <span class="bg-slate-900/90 text-amber-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-400/40 flex items-center gap-1.5">
+                  <i class="fa-solid fa-images"></i> 4 Photos
+                </span>
+              </div>
             </div>
             <div class="p-6">
               <div class="flex items-center text-xs text-amber-700 font-semibold mb-2 gap-3">
@@ -481,7 +529,7 @@
         <span class="text-amber-700 font-bold text-xs uppercase tracking-widest bg-amber-100 px-3 py-1 rounded-full inline-block mb-3">Partie 3</span>
         <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest-950 mb-4">Quelques Hébergements</h2>
         <p class="text-slate-600 text-base sm:text-lg">
-          Des choix sélectionnés adaptées à tous les budgets pour votre séjour en Lituanie.
+          Des choix sélectionnés adaptées à tous les budgets pour votre séjour en Lituanie. (Cliquez sur une image d'hôtel pour voir les photos de l'établissement)
         </p>
       </div>
 
@@ -491,12 +539,17 @@
         <!-- Budget Option 1: Petit Budget -->
         <div class="bg-white rounded-2xl border-2 border-slate-200 hover:border-amber-500 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group">
           <div>
-            <div class="relative h-48 overflow-hidden">
-              <!-- REMPLACER L'IMAGE HÉBERGEMENT PETIT BUDGET ICI : changez le lien dans src="..." ci-dessous -->
+            <div onclick="openGallery('hotel_petit')" class="relative h-48 overflow-hidden cursor-pointer">
               <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=600&q=80" 
                    alt="Auberge de Jeunesse Vilnius" 
                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
                    onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Hostel+Vilnius'">
+              <!-- Hover Overlay -->
+              <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                <span class="bg-slate-900/90 text-amber-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-400/40 flex items-center gap-1.5">
+                  <i class="fa-solid fa-hotel"></i> Voir l'Auberge (4 photos)
+                </span>
+              </div>
             </div>
             <div class="p-6">
               <div class="flex justify-between items-center mb-3">
@@ -517,9 +570,9 @@
             </div>
           </div>
           <div class="p-6 pt-0">
-            <div class="w-full bg-slate-100 text-slate-700 font-semibold py-2.5 rounded-xl text-xs text-center border border-slate-200">
-              Idéal jeunes & étudiants
-            </div>
+            <button onclick="openGallery('hotel_petit')" class="w-full bg-slate-100 hover:bg-amber-600 hover:text-white text-slate-700 font-semibold py-2.5 rounded-xl text-xs text-center border border-slate-200 transition">
+              <i class="fa-solid fa-camera mr-1"></i> Idéal jeunes & étudiants (4 photos)
+            </button>
           </div>
         </div>
 
@@ -529,12 +582,17 @@
             ★ Choix Recommandé
           </div>
           <div>
-            <div class="relative h-48 overflow-hidden">
-              <!-- REMPLACER L'IMAGE HÉBERGEMENT MOYEN BUDGET ICI : changez le lien dans src="..." ci-dessous -->
+            <div onclick="openGallery('hotel_moyen')" class="relative h-48 overflow-hidden cursor-pointer">
               <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" 
                    alt="Hôtel de charme Vilnius" 
                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
                    onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Hotel+Charme'">
+              <!-- Hover Overlay -->
+              <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                <span class="bg-slate-900/90 text-amber-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-400/40 flex items-center gap-1.5">
+                  <i class="fa-solid fa-hotel"></i> Voir l'Hôtel (4 photos)
+                </span>
+              </div>
             </div>
             <div class="p-6">
               <div class="flex justify-between items-center mb-3">
@@ -555,21 +613,26 @@
             </div>
           </div>
           <div class="p-6 pt-0">
-            <div class="w-full bg-amber-600 text-white font-semibold py-2.5 rounded-xl text-xs text-center shadow">
-              Rapport qualité-prix idéal
-            </div>
+            <button onclick="openGallery('hotel_moyen')" class="w-full bg-amber-600 hover:bg-amber-500 text-white font-semibold py-2.5 rounded-xl text-xs text-center shadow transition">
+              <i class="fa-solid fa-camera mr-1"></i> Voir l'hôtel en images (4 photos)
+            </button>
           </div>
         </div>
 
         <!-- Budget Option 3: Gros Budget -->
         <div class="bg-white rounded-2xl border-2 border-slate-200 hover:border-amber-500 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group">
           <div>
-            <div class="relative h-48 overflow-hidden">
-              <!-- REMPLACER L'IMAGE HÉBERGEMENT GROS BUDGET ICI : changez le lien dans src="..." ci-dessous -->
+            <div onclick="openGallery('hotel_gros')" class="relative h-48 overflow-hidden cursor-pointer">
               <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80" 
                    alt="Resort de Luxe & Spa" 
                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
                    onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Grand+Hotel+Spa'">
+              <!-- Hover Overlay -->
+              <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                <span class="bg-slate-900/90 text-amber-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-400/40 flex items-center gap-1.5">
+                  <i class="fa-solid fa-hotel"></i> Voir le Palace (4 photos)
+                </span>
+              </div>
             </div>
             <div class="p-6">
               <div class="flex justify-between items-center mb-3">
@@ -590,9 +653,9 @@
             </div>
           </div>
           <div class="p-6 pt-0">
-            <div class="w-full bg-slate-100 text-slate-700 font-semibold py-2.5 rounded-xl text-xs text-center border border-slate-200">
-              Confort & Luxe 5 Étoiles
-            </div>
+            <button onclick="openGallery('hotel_gros')" class="w-full bg-slate-100 hover:bg-purple-700 hover:text-white text-slate-700 font-semibold py-2.5 rounded-xl text-xs text-center border border-slate-200 transition">
+              <i class="fa-solid fa-camera mr-1"></i> Découvrir le Palace (4 photos)
+            </button>
           </div>
         </div>
 
@@ -601,6 +664,55 @@
     </section>
 
   </main>
+
+  <!-- LIGHTBOX MODAL CAROUSEL DIALOG -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md hidden flex flex-col justify-between p-4 sm:p-6 transition-all duration-300">
+    
+    <!-- Modal Header -->
+    <div class="flex justify-between items-center z-10 w-full max-w-6xl mx-auto">
+      <div class="flex items-center gap-3">
+        <span id="lightbox-counter" class="bg-forest-900 text-amber-300 text-xs font-bold px-3 py-1 rounded-full border border-amber-500/30">
+          1 / 4
+        </span>
+        <h3 id="lightbox-title" class="font-serif font-bold text-white text-lg sm:text-xl truncate">
+          Galerie Photo
+        </h3>
+      </div>
+      <button onclick="closeGallery()" class="text-slate-300 hover:text-white bg-white/10 hover:bg-white/20 w-10 h-10 rounded-full flex items-center justify-center transition border border-white/20">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+
+    <!-- Modal Main Carousel Viewer -->
+    <div class="relative flex-1 flex items-center justify-center max-w-6xl w-full mx-auto my-4 overflow-hidden">
+      
+      <!-- Prev Button -->
+      <button onclick="prevGalleryImage()" class="absolute left-2 sm:left-4 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-slate-900/80 hover:bg-amber-600 text-white flex items-center justify-center transition border border-white/20 shadow-2xl">
+        <i class="fa-solid fa-chevron-left text-lg"></i>
+      </button>
+
+      <!-- Main Image Container -->
+      <div class="relative w-full h-full flex flex-col items-center justify-center">
+        <img id="lightbox-img" src="" alt="Photo agrandie" class="max-h-[70vh] sm:max-h-[75vh] w-auto max-w-full object-contain rounded-xl shadow-2xl transition duration-300">
+        <!-- Caption Overlay -->
+        <div class="mt-3 bg-slate-900/90 text-slate-200 text-xs sm:text-sm px-4 py-2 rounded-lg border border-white/10 text-center max-w-xl shadow">
+          <p id="lightbox-caption">Description de l'image</p>
+        </div>
+      </div>
+
+      <!-- Next Button -->
+      <button onclick="nextGalleryImage()" class="absolute right-2 sm:right-4 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-slate-900/80 hover:bg-amber-600 text-white flex items-center justify-center transition border border-white/20 shadow-2xl">
+        <i class="fa-solid fa-chevron-right text-lg"></i>
+      </button>
+
+    </div>
+
+    <!-- Modal Thumbnails Bottom Strip -->
+    <div id="lightbox-thumbnails" class="flex justify-center items-center gap-2 overflow-x-auto py-2 z-10 max-w-6xl mx-auto w-full">
+      <!-- Thumbnail buttons will be dynamically injected here -->
+    </div>
+
+  </div>
 
   <!-- FOOTER -->
   <footer class="bg-forest-950 text-white border-t border-forest-900 py-12">
@@ -617,8 +729,212 @@
     </div>
   </footer>
 
-  <!-- JAVASCRIPT LOGIC (ONLY CATEGORY FILTERING) -->
+  <!-- JAVASCRIPT LOGIC FOR CATEGORIES & CAROUSEL GALERIES -->
   <script>
+    // =========================================================================
+    // MODIFIER LES IMAGES DU CARROUSEL ICI (IMAGE CAROUSEL DATASET)
+    // Vous pouvez remplacer ou ajouter n'importe quel lien d'image ci-dessous
+    // =========================================================================
+    const GALLERIES_DATA = {
+      hero: {
+        title: "Panoramas de la Lituanie",
+        images: [
+          { url: "https://images.unsplash.com/photo-1549877452-9c387954fbc2?auto=format&fit=crop&w=1200&q=80", caption: "Château médiéval de Trakai entouré des eaux du lac Galvė" },
+          { url: "https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=1200&q=80", caption: "Panorama sur les toits baroques de Vilnius" },
+          { url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80", caption: "Grandes dunes de sable sur l'Isthme de Courlande" },
+          { url: "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?auto=format&fit=crop&w=1200&q=80", caption: "Envol de montgolfières au coucher du soleil à Vilnius" }
+        ]
+      },
+      vilnius: {
+        title: "Vilnius - Capitale Historique",
+        images: [
+          { url: "https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=1200&q=80", caption: "Vue panoramique du centre historique de Vilnius" },
+          { url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80", caption: "Les ruelles pavées de la Vieille Ville" },
+          { url: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80", caption: "L'architecture gothique remarquable de l'Église Sainte-Anne" },
+          { url: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1200&q=80", caption: "La République Bohème d'Užupis" }
+        ]
+      },
+      courlande: {
+        title: "L'Isthme de Courlande & Plages",
+        images: [
+          { url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80", caption: "La majestueuse Dune de Parnidis près de Nida" },
+          { url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80", caption: "Les plages de sable blanc sur la mer Baltique" },
+          { url: "https://images.unsplash.com/photo-1519046904884-53103b34b201?auto=format&fit=crop&w=1200&q=80", caption: "Forêt enchantée de pins odorants" },
+          { url: "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=1200&q=80", caption: "Coucher de soleil sur la lagune de Courlande" }
+        ]
+      },
+      trakai_lakes: {
+        title: "Parc National des Lacs de Trakai",
+        images: [
+          { url: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80", caption: "Reflets des forêts sur le lac tranquille de Trakai" },
+          { url: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80", caption: "Promenade en voilier sur le lac Galvė" },
+          { url: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80", caption: "Paysages insulaires verdoyants" },
+          { url: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?auto=format&fit=crop&w=1200&q=80", caption: "Sentier nature autour des lacs" }
+        ]
+      },
+      trakai_castle: {
+        title: "Château de Trakai",
+        images: [
+          { url: "https://images.unsplash.com/photo-1549877452-9c387954fbc2?auto=format&fit=crop&w=1200&q=80", caption: "Vue extérieure du Château insulaire de Trakai" },
+          { url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80", caption: "Pont de bois reliant la berge au château" },
+          { url: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80", caption: "Cour intérieure et salles d'expositions médiévales" },
+          { url: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80", caption: "Vue aérienne du château au milieu du lac" }
+        ]
+      },
+      colline_croix: {
+        title: "La Colline des Croix (Kryžių kalnas)",
+        images: [
+          { url: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80", caption: "La Colline des Croix près de Šiauliai" },
+          { url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80", caption: "Détail des sculptures traditionnelles en bois" },
+          { url: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80", caption: "Atmosphère mystique au coucher du soleil" },
+          { url: "https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=1200&q=80", caption: "Symbole historique de paix et de foi" }
+        ]
+      },
+      gastronomie: {
+        title: "Gastronomie Lituanienne",
+        images: [
+          { url: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80", caption: "Plat traditionnel : Les Cepelinai farcis servis avec sauce lardons" },
+          { url: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80", caption: "Šaltibarščiai : La célèbre soupe froide rose aux betteraves et aneth" },
+          { url: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80", caption: "Intérieur chaleureux d'une taverne traditionnelle lituanienne" },
+          { url: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80", caption: "Pain noir de seigle artisanal et fromages d'ambre" }
+        ]
+      },
+      velo_courlande: {
+        title: "Randonnée à Vélo sur l'Isthme de Courlande",
+        images: [
+          { url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80", caption: "Pistes cyclables longeant la lagune de Nida" },
+          { url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80", caption: "Point de vue panoramique depuis le sommet de la dune" },
+          { url: "https://images.unsplash.com/photo-1519046904884-53103b34b201?auto=format&fit=crop&w=1200&q=80", caption: "Sentier forestier à travers le parc national" },
+          { url: "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=1200&q=80", caption: "Pause au bord de la plage balte" }
+        ]
+      },
+      montgolfiere: {
+        title: "Vol en Montgolfière à Vilnius",
+        images: [
+          { url: "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?auto=format&fit=crop&w=1200&q=80", caption: "Envol au-dessus des clochers baroques de Vilnius" },
+          { url: "https://images.unsplash.com/photo-1516834474-48c0abc2a902?auto=format&fit=crop&w=1200&q=80", caption: "Préparation des ballons au lever du jour" },
+          { url: "https://images.unsplash.com/photo-1499363536502-87642509e31b?auto=format&fit=crop&w=1200&q=80", caption: "Survol des magnifiques lacs et forêts de Trakai" },
+          { url: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80", caption: "Coucher de soleil féerique depuis la nacelle" }
+        ]
+      },
+      hotel_petit: {
+        title: "Downtown Forest Hostel & Camping (Petit Budget)",
+        images: [
+          { url: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1200&q=80", caption: "Entrée et terrasse extérieure du hostel dans le quartier Užupis" },
+          { url: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80", caption: "Chambres et dortoirs propres et lumineux" },
+          { url: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80", caption: "Jardin verdoyant et espace barbecue convivial" },
+          { url: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80", caption: "Cuisine commune et espace lounge pour voyageurs" }
+        ]
+      },
+      hotel_moyen: {
+        title: "Art Hotel Moon Garden (Moyen Budget)",
+        images: [
+          { url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80", caption: "Façade et accueil élégant de l'hôtel boutique" },
+          { url: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80", caption: "Chambre supérieure raffinée avec briques apparentes" },
+          { url: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80", caption: "Salle de restaurant et buffet petit-déjeuner gourmand" },
+          { url: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1200&q=80", caption: "Salle de bain moderne et confortable" }
+        ]
+      },
+      hotel_gros: {
+        title: "Grand Hotel Kempinski / SPA (Gros Budget)",
+        images: [
+          { url: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80", caption: "Façade somptueuse face à la Place de la Cathédrale" },
+          { url: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80", caption: "Suite de luxe 5 étoiles avec vue panoramique" },
+          { url: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80", caption: "Espace Spa wellness et piscine intérieure chauffée" },
+          { url: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80", caption: "Restaurant gastronomique étoilé" }
+        ]
+      }
+    };
+
+    // =========================================================================
+    // LIGHTBOX CAROUSEL STATE & LOGIC
+    // =========================================================================
+    let currentGalleryKey = null;
+    let currentImageIndex = 0;
+
+    function openGallery(key) {
+      if (!GALLERIES_DATA[key]) return;
+      
+      currentGalleryKey = key;
+      currentImageIndex = 0;
+      
+      const modal = document.getElementById('lightbox-modal');
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling under modal
+      
+      updateGalleryView();
+    }
+
+    function closeGallery() {
+      const modal = document.getElementById('lightbox-modal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = ''; // Restore body scroll
+    }
+
+    function updateGalleryView() {
+      if (!currentGalleryKey) return;
+      const gallery = GALLERIES_DATA[currentGalleryKey];
+      const total = gallery.images.length;
+      const current = gallery.images[currentImageIndex];
+
+      // Update Header Text & Counter
+      document.getElementById('lightbox-title').innerText = gallery.title;
+      document.getElementById('lightbox-counter').innerText = `${currentImageIndex + 1} / ${total}`;
+
+      // Update Image & Caption
+      const imgElem = document.getElementById('lightbox-img');
+      imgElem.src = current.url;
+      imgElem.alt = current.caption;
+      document.getElementById('lightbox-caption').innerText = current.caption;
+
+      // Render Thumbnails
+      const thumbsContainer = document.getElementById('lightbox-thumbnails');
+      thumbsContainer.innerHTML = '';
+      
+      gallery.images.forEach((img, idx) => {
+        const btn = document.createElement('button');
+        btn.onclick = () => {
+          currentImageIndex = idx;
+          updateGalleryView();
+        };
+        btn.className = `w-12 h-12 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${
+          idx === currentImageIndex 
+            ? 'border-amber-400 scale-105 opacity-100 shadow-md' 
+            : 'border-transparent opacity-50 hover:opacity-100'
+        }`;
+        
+        btn.innerHTML = `<img src="${img.url}" class="w-full h-full object-cover" alt="thumb">`;
+        thumbsContainer.appendChild(btn);
+      });
+    }
+
+    function prevGalleryImage() {
+      if (!currentGalleryKey) return;
+      const total = GALLERIES_DATA[currentGalleryKey].images.length;
+      currentImageIndex = (currentImageIndex - 1 + total) % total;
+      updateGalleryView();
+    }
+
+    function nextGalleryImage() {
+      if (!currentGalleryKey) return;
+      const total = GALLERIES_DATA[currentGalleryKey].images.length;
+      currentImageIndex = (currentImageIndex + 1) % total;
+      updateGalleryView();
+    }
+
+    // Keyboard navigation (Arrow keys & Escape)
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('lightbox-modal');
+      if (modal.classList.contains('hidden')) return;
+
+      if (e.key === 'Escape') closeGallery();
+      if (e.key === 'ArrowLeft') prevGalleryImage();
+      if (e.key === 'ArrowRight') nextGalleryImage();
+    });
+
+    // =========================================================================
+    // CATEGORY FILTERING LOGIC
+    // =========================================================================
     function filterActivities(category) {
       const cards = document.querySelectorAll('.activity-card');
       const tabs = document.querySelectorAll('.activity-tab-btn');
