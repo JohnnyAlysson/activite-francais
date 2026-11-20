@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brochure Touristique - La Lituanie</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            amber: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+            },
+            forest: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              600: '#16a34a',
+              800: '#166534',
+              900: '#14532d',
+              950: '#052e16',
+            },
+            cream: '#FAF8F5'
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FAF8F5;
+      color: #1e293b;
+    }
+
+    /* Custom Glassmorphism & Shadows */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+    
+    .amber-gradient {
+      background: linear-gradient(135deg, #052e16 0%, #14532d 50%, #b45309 100%);
+    }
+
+    /* Hide edit elements during Salon presentation mode */
+    body.presentation-mode .edit-control,
+    body.presentation-mode .edit-banner {
+      display: none !important;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-slate-800 selection:bg-amber-500 selection:text-white">
+
+  <!-- TOP NOTICE BANNER (ASSIGNMENT CONTEXT) -->
+  <div class="edit-banner bg-forest-950 text-amber-100 text-xs sm:text-sm py-2 px-4 text-center border-b border-forest-800 flex justify-between items-center flex-wrap gap-2">
+    <div class="flex items-center gap-2 mx-auto">
+      <span class="bg-amber-600 text-white text-xs font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">Projet Scolaire</span>
+      <span>Salon du Tourisme - Brochure sur la <strong>Lituanie</strong></span>
+    </div>
+    <div class="flex items-center gap-2 text-xs">
+      <button onclick="togglePresentationMode()" class="bg-amber-600 hover:bg-amber-500 text-white font-medium px-3 py-1 rounded-md transition flex items-center gap-1.5 shadow-sm">
+        <i class="fa-solid fa-expand"></i> Mode Présentation / Stand
+      </button>
+    </div>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-forest-900 flex items-center justify-center text-amber-500 font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-tree"></i>
+          </div>
+          <div>
+            <span class="font-serif font-bold text-lg sm:text-xl text-forest-950 block leading-tight">Lituanie</span>
+            <span class="text-[10px] text-amber-700 tracking-wider font-semibold uppercase block">Joyau de la Baltique</span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+          <a href="#presentation" class="text-slate-600 hover:text-forest-800 transition flex items-center gap-1.5">
+            <i class="fa-solid fa-compass text-amber-600"></i> Présentation
+          </a>
+          <a href="#activites" class="text-slate-600 hover:text-forest-800 transition flex items-center gap-1.5">
+            <i class="fa-solid fa-person-hiking text-amber-600"></i> Activités
+          </a>
+          <a href="#hebergements" class="text-slate-600 hover:text-forest-800 transition flex items-center gap-1.5">
+            <i class="fa-solid fa-hotel text-amber-600"></i> Hébergements
+          </a>
+        </div>
+
+        <!-- CTA Action -->
+        <div class="flex items-center gap-3">
+          <button onclick="togglePresentationMode()" class="edit-control hidden sm:flex items-center gap-2 border border-slate-300 hover:border-forest-800 text-slate-700 px-3.5 py-1.5 rounded-lg text-sm font-semibold transition bg-slate-50 hover:bg-white">
+            <i class="fa-solid fa-desktop text-forest-800"></i> Stand Mode
+          </button>
+          <a href="#activites" class="bg-forest-900 hover:bg-forest-800 text-amber-400 font-semibold px-4 py-2 rounded-lg text-sm shadow-md hover:shadow-lg transition flex items-center gap-2">
+            <span>Explorer</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="relative bg-forest-950 text-white overflow-hidden">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0 opacity-40 mix-blend-overlay">
+      <img id="hero-img" src="https://images.unsplash.com/photo-1549877452-9c387954fbc2?auto=format&fit=crop&w=1600&q=80" alt="Lithuania Trakai Castle" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/1600x900/14532d/ffffff?text=Lituanie+Paysage'">
+    </div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36 flex flex-col items-start">
+      
+      <!-- Change Photo Floating Action -->
+      <button onclick="openImageModal('hero-img')" class="edit-control mb-6 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white text-xs font-semibold px-3.5 py-1.5 rounded-full border border-white/30 transition flex items-center gap-2 shadow">
+        <i class="fa-solid fa-camera"></i> Changer la photo de couverture
+      </button>
+
+      <span class="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-500/40 text-amber-300 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 backdrop-blur-sm">
+        <i class="fa-solid fa-location-dot"></i> Europe du Nord • Pays Balte
+      </span>
+      
+      <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-extrabold text-amber-50 tracking-tight leading-tight max-w-4xl mb-6">
+        Bienvenue en Lituanie, la magie balte préservée.
+      </h1>
+
+      <p class="text-slate-200 text-lg sm:text-xl max-w-2xl font-light mb-8 leading-relaxed">
+        Des châteaux médiévaux posés sur les lacs limpides aux dunes géantes de la Baltique, découvrez une destination enchantée aux mille légendes.
+      </p>
+
+      <div class="flex flex-wrap gap-4">
+        <a href="#presentation" class="bg-amber-600 hover:bg-amber-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition flex items-center gap-2 text-sm sm:text-base">
+          <span>Découvrir la Région</span>
+          <i class="fa-solid fa-chevron-right text-xs"></i>
+        </a>
+        <a href="#hebergements" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-xl border border-white/30 backdrop-blur-md transition text-sm sm:text-base">
+          Où Dormir ?
+        </a>
+      </div>
+
+      <!-- Quick Stats bar -->
+      <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-4xl pt-8 border-t border-white/10 text-center sm:text-left">
+        <div>
+          <p class="text-3xl font-serif font-bold text-amber-400">Vilnius</p>
+          <p class="text-xs text-slate-300 uppercase tracking-wider font-medium">Capitale baroque</p>
+        </div>
+        <div>
+          <p class="text-3xl font-serif font-bold text-amber-400">33%</p>
+          <p class="text-xs text-slate-300 uppercase tracking-wider font-medium">Couverture forestière</p>
+        </div>
+        <div>
+          <p class="text-3xl font-serif font-bold text-amber-400">+3 000</p>
+          <p class="text-xs text-slate-300 uppercase tracking-wider font-medium">Lacs magnifiques</p>
+        </div>
+        <div>
+          <p class="text-3xl font-serif font-bold text-amber-400">UNESCO</p>
+          <p class="text-xs text-slate-300 uppercase tracking-wider font-medium">Patrimoine Mondial</p>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
+
+    <!-- ========================================== -->
+    <!-- SECTION 1: PRÉSENTATION GÉNÉRALE -->
+    <!-- ========================================== -->
+    <section id="presentation" class="scroll-mt-20">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-amber-700 font-bold text-xs uppercase tracking-widest bg-amber-100 px-3 py-1 rounded-full inline-block mb-3">Partie 1</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest-950 mb-4">Présentation Générale de la Lituanie</h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          Située au bord de la mer Baltique, la Lituanie séduit par l'élégance de son histoire, ses cités médiévales chaleureuses et sa nature préservée.
+        </p>
+      </div>
+
+      <!-- City & Landscapes Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-12">
+        
+        <!-- Main Card: Vilnius -->
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group">
+          <div class="relative h-72 sm:h-80 overflow-hidden">
+            <img id="img-vilnius" src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=1000&q=80" alt="Ville de Vilnius" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/800x600/14532d/ffffff?text=Vilnius'">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
+            <button onclick="openImageModal('img-vilnius')" class="edit-control absolute top-4 right-4 bg-slate-900/70 hover:bg-slate-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg border border-white/20 backdrop-blur-md transition flex items-center gap-1.5">
+              <i class="fa-solid fa-pen-to-square"></i> Modifier
+            </button>
+            <div class="absolute bottom-6 left-6 right-6">
+              <span class="bg-amber-500 text-slate-950 font-bold text-xs px-2.5 py-1 rounded-md mb-2 inline-block">Ville Principale & Capitale</span>
+              <h3 class="font-serif text-3xl font-bold text-white">Vilnius, la Perle Baroque</h3>
+            </div>
+          </div>
+          <div class="p-6 sm:p-8 space-y-4">
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+              La capitale lituanienne abrite l'un des plus grands centres historiques médiévaux d'Europe de l'Est, classé au patrimoine mondial de l'UNESCO. Entre ruelles pavées, églises flamboyantes et la célèbre République indépendante des artistes d'<strong>Užupis</strong>, Vilnius respire l'histoire et la créativité.
+            </p>
+            <div class="grid grid-cols-2 gap-4 pt-2">
+              <div class="bg-cream p-3 rounded-xl border border-slate-200/60">
+                <span class="block text-xs font-bold text-forest-900 uppercase">Population</span>
+                <span class="text-slate-800 font-semibold text-sm">~ 590 000 habitants</span>
+              </div>
+              <div class="bg-cream p-3 rounded-xl border border-slate-200/60">
+                <span class="block text-xs font-bold text-forest-900 uppercase">Style</span>
+                <span class="text-slate-800 font-semibold text-sm">Gothique, Renaissance & Baroque</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Landscape Showcase Cards -->
+        <div class="lg:col-span-5 flex flex-col gap-6">
+          
+          <!-- Nature Highlight 1 -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-md p-5 flex gap-4 items-center hover:border-forest-800/40 transition group relative">
+            <div class="relative w-32 h-32 rounded-xl overflow-hidden flex-shrink-0">
+              <img id="img-landscape-1" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80" alt="Isthme de Courlande" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.src='https://placehold.co/400x400/166534/ffffff?text=Courlande'">
+              <button onclick="openImageModal('img-landscape-1')" class="edit-control absolute inset-0 bg-slate-900/60 text-white opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-xs font-medium">
+                <i class="fa-solid fa-camera"></i>
+              </button>
+            </div>
+            <div class="space-y-1">
+              <span class="text-[11px] font-bold text-amber-700 uppercase tracking-wider">Paysages Maritimes</span>
+              <h4 class="font-serif font-bold text-lg text-slate-900">L'Isthme de Courlande</h4>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                De spectaculaires dunes de sable fin bordées par les eaux calmes de la lagune et la mer Baltique.
+              </p>
+            </div>
+          </div>
+
+          <!-- Nature Highlight 2 -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-md p-5 flex gap-4 items-center hover:border-forest-800/40 transition group relative">
+            <div class="relative w-32 h-32 rounded-xl overflow-hidden flex-shrink-0">
+              <img id="img-landscape-2" src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=500&q=80" alt="Lacs de Trakai" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.src='https://placehold.co/400x400/166534/ffffff?text=Lacs+Trakai'">
+              <button onclick="openImageModal('img-landscape-2')" class="edit-control absolute inset-0 bg-slate-900/60 text-white opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-xs font-medium">
+                <i class="fa-solid fa-camera"></i>
+              </button>
+            </div>
+            <div class="space-y-1">
+              <span class="text-[11px] font-bold text-amber-700 uppercase tracking-wider">Parcs & Lacs</span>
+              <h4 class="font-serif font-bold text-lg text-slate-900">Le Parc National de Trakai</h4>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Une région aux 200 lac splendides entourés de denses forêts de pins verdoyantes.
+              </p>
+            </div>
+          </div>
+
+          <!-- Quick Practical Info Box -->
+          <div class="bg-gradient-to-r from-forest-900 to-forest-950 rounded-2xl p-6 text-white shadow-lg space-y-3">
+            <h4 class="font-serif font-bold text-amber-400 flex items-center gap-2 text-base">
+              <i class="fa-solid fa-circle-info text-amber-500"></i> Infos Pratiques aux Voyageurs
+            </h4>
+            <div class="grid grid-cols-2 gap-3 text-xs text-slate-200">
+              <div><strong>Langue :</strong> Lituanien (Anglais/Français répandus)</div>
+              <div><strong>Monnaie :</strong> Euro (€)</div>
+              <div><strong>Membre :</strong> Union Européenne / Schengen</div>
+              <div><strong>Décalage :</strong> UTC+2 (1h avant la France)</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 2: ACTIVITÉS INTÉRESSANTES -->
+    <!-- ========================================== -->
+    <section id="activites" class="scroll-mt-20">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="text-amber-700 font-bold text-xs uppercase tracking-widest bg-amber-100 px-3 py-1 rounded-full inline-block mb-3">Partie 2</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest-950 mb-4">Les Activités Intéressantes</h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          Découvrez la diversité des expériences lituaniennes : châteaux d'eau, rituels culturels et aventures en pleine nature.
+        </p>
+      </div>
+
+      <!-- Filter Buttons Tabs -->
+      <div class="flex justify-center flex-wrap gap-2 mb-12">
+        <button onclick="filterActivities('all')" class="activity-tab-btn active bg-forest-900 text-amber-300 font-semibold px-5 py-2.5 rounded-xl text-sm transition shadow-sm" data-category="all">
+          <i class="fa-solid fa-layer-group"></i> Toutes les Activités
+        </button>
+        <button onclick="filterActivities('visite')" class="activity-tab-btn bg-white hover:bg-slate-100 text-slate-700 font-semibold px-5 py-2.5 rounded-xl text-sm border border-slate-200 transition" data-category="visite">
+          <i class="fa-solid fa-landmark text-amber-600"></i> Visites & Patrimoine
+        </button>
+        <button onclick="filterActivities('culture')" class="activity-tab-btn bg-white hover:bg-slate-100 text-slate-700 font-semibold px-5 py-2.5 rounded-xl text-sm border border-slate-200 transition" data-category="culture">
+          <i class="fa-solid fa-utensils text-amber-600"></i> Culture & Gastronomie
+        </button>
+        <button onclick="filterActivities('sport')" class="activity-tab-btn bg-white hover:bg-slate-100 text-slate-700 font-semibold px-5 py-2.5 rounded-xl text-sm border border-slate-200 transition" data-category="sport">
+          <i class="fa-solid fa-bicycle text-amber-600"></i> Sport & Nature
+        </button>
+      </div>
+
+      <!-- Activity Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="activities-grid">
+        
+        <!-- Activity 1 -->
+        <div class="activity-card bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group" data-category="visite">
+          <div>
+            <div class="relative h-56 overflow-hidden">
+              <img id="img-act-1" src="https://images.unsplash.com/photo-1549877452-9c387954fbc2?auto=format&fit=crop&w=600&q=80" alt="Château de Trakai" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Trakai'">
+              <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow">Visite</span>
+              <button onclick="openImageModal('img-act-1')" class="edit-control absolute top-4 right-4 bg-slate-900/70 hover:bg-slate-900 text-white text-xs px-2.5 py-1 rounded-md border border-white/20 backdrop-blur-md">
+                <i class="fa-solid fa-camera"></i>
+              </button>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-xs text-amber-700 font-semibold mb-2 gap-3">
+                <span><i class="fa-solid fa-clock"></i> 1/2 Journée</span>
+                <span><i class="fa-solid fa-map-pin"></i> Trakai (30km de Vilnius)</span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-slate-900 mb-2">Château de Trakai sur l'Eau</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                L'unique château insulaire d'Europe de l'Est, perché sur le lac Galvė. Une plongée épique dans l'histoire des grands-ducs lituaniens.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0 border-t border-slate-100 mt-auto flex justify-between items-center text-xs font-semibold text-slate-500">
+            <span>Recommandé en bateau à pédales</span>
+            <span class="text-forest-800">Must-See ★★★★★</span>
+          </div>
+        </div>
+
+        <!-- Activity 2 -->
+        <div class="activity-card bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group" data-category="visite">
+          <div>
+            <div class="relative h-56 overflow-hidden">
+              <img id="img-act-2" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Vieille Ville de Vilnius" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Vilnius+Vieille+Ville'">
+              <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow">Visite</span>
+              <button onclick="openImageModal('img-act-2')" class="edit-control absolute top-4 right-4 bg-slate-900/70 hover:bg-slate-900 text-white text-xs px-2.5 py-1 rounded-md border border-white/20 backdrop-blur-md">
+                <i class="fa-solid fa-camera"></i>
+              </button>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-xs text-amber-700 font-semibold mb-2 gap-3">
+                <span><i class="fa-solid fa-clock"></i> 3 à 4 heures</span>
+                <span><i class="fa-solid fa-map-pin"></i> Centre Vilnius</span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-slate-900 mb-2">Visite Guidée de la Vieille Ville</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                Parcourez la rue Pilies, la tour de Gediminas et découvrez la mythique église Sainte-Anne en briques gothiques rougeoyantes.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0 border-t border-slate-100 mt-auto flex justify-between items-center text-xs font-semibold text-slate-500">
+            <span>Guide francophone disponible</span>
+            <span class="text-forest-800">Culture & Histoire</span>
+          </div>
+        </div>
+
+        <!-- Activity 3 -->
+        <div class="activity-card bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group" data-category="culture">
+          <div>
+            <div class="relative h-56 overflow-hidden">
+              <img id="img-act-3" src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=600&q=80" alt="Colline des Croix" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Colline+des+Croix'">
+              <span class="absolute top-4 left-4 bg-purple-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow">Culture</span>
+              <button onclick="openImageModal('img-act-3')" class="edit-control absolute top-4 right-4 bg-slate-900/70 hover:bg-slate-900 text-white text-xs px-2.5 py-1 rounded-md border border-white/20 backdrop-blur-md">
+                <i class="fa-solid fa-camera"></i>
+              </button>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-xs text-amber-700 font-semibold mb-2 gap-3">
+                <span><i class="fa-solid fa-clock"></i> 2 heures</span>
+                <span><i class="fa-solid fa-map-pin"></i> Šiauliai</span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-slate-900 mb-2">La Mystique Colline des Croix</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                Un lieu spirituel et symbole de foi résiliente rassemblant plus de 100 000 croix en bois sculpté venues du monde entier.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0 border-t border-slate-100 mt-auto flex justify-between items-center text-xs font-semibold text-slate-500">
+            <span>Site Unique UNESCO</span>
+            <span class="text-forest-800">Émotionnel</span>
+          </div>
+        </div>
+
+        <!-- Activity 4 -->
+        <div class="activity-card bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group" data-category="culture">
+          <div>
+            <div class="relative h-56 overflow-hidden">
+              <img id="img-act-4" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" alt="Dégustation Cepelinai" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Gastronomie+Lituanienne'">
+              <span class="absolute top-4 left-4 bg-purple-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow">Culture</span>
+              <button onclick="openImageModal('img-act-4')" class="edit-control absolute top-4 right-4 bg-slate-900/70 hover:bg-slate-900 text-white text-xs px-2.5 py-1 rounded-md border border-white/20 backdrop-blur-md">
+                <i class="fa-solid fa-camera"></i>
+              </button>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-xs text-amber-700 font-semibold mb-2 gap-3">
+                <span><i class="fa-solid fa-clock"></i> Repas</span>
+                <span><i class="fa-solid fa-utensils"></i> Restaurants traditionnels</span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-slate-900 mb-2">Gastronomie : Les "Cepelinai"</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                Dégustez la spécialité nationale : de gros beignets de pomme de terre farcis à la viande ou aux champignons, servis avec crème fraîche et lardons.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0 border-t border-slate-100 mt-auto flex justify-between items-center text-xs font-semibold text-slate-500">
+            <span>À goûter impérativement</span>
+            <span class="text-forest-800">Gourmand</span>
+          </div>
+        </div>
+
+        <!-- Activity 5 -->
+        <div class="activity-card bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group" data-category="sport">
+          <div>
+            <div class="relative h-56 overflow-hidden">
+              <img id="img-act-5" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Isthme de Courlande Vélo" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Nature+Curonian+Spit'">
+              <span class="absolute top-4 left-4 bg-emerald-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow">Sport & Nature</span>
+              <button onclick="openImageModal('img-act-5')" class="edit-control absolute top-4 right-4 bg-slate-900/70 hover:bg-slate-900 text-white text-xs px-2.5 py-1 rounded-md border border-white/20 backdrop-blur-md">
+                <i class="fa-solid fa-camera"></i>
+              </button>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-xs text-amber-700 font-semibold mb-2 gap-3">
+                <span><i class="fa-solid fa-clock"></i> Journée</span>
+                <span><i class="fa-solid fa-map-pin"></i> Nida & Klaipėda</span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-slate-900 mb-2">Cyclisme sur les Dunes de Nida</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                Parcourez les pistes cyclables longeant les forêts d'ambre et gravissez la majestueuse Dune de Parnidis surplombant la Baltique.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0 border-t border-slate-100 mt-auto flex justify-between items-center text-xs font-semibold text-slate-500">
+            <span>Location de vélo facile</span>
+            <span class="text-forest-800">Grand Air</span>
+          </div>
+        </div>
+
+        <!-- Activity 6 -->
+        <div class="activity-card bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group" data-category="sport">
+          <div>
+            <div class="relative h-56 overflow-hidden">
+              <img id="img-act-6" src="https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?auto=format&fit=crop&w=600&q=80" alt="Vol en montgolfière" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Montgolfiere+Vilnius'">
+              <span class="absolute top-4 left-4 bg-emerald-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow">Sport & Nature</span>
+              <button onclick="openImageModal('img-act-6')" class="edit-control absolute top-4 right-4 bg-slate-900/70 hover:bg-slate-900 text-white text-xs px-2.5 py-1 rounded-md border border-white/20 backdrop-blur-md">
+                <i class="fa-solid fa-camera"></i>
+              </button>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-xs text-amber-700 font-semibold mb-2 gap-3">
+                <span><i class="fa-solid fa-clock"></i> 2 heures</span>
+                <span><i class="fa-solid fa-map-pin"></i> Ciel de Vilnius</span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-slate-900 mb-2">Vol en Montgolfière au Coucher de Soleil</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                Vilnius est l'une des rares capitales européennes à autoriser le survol en montgolfière. Une vue panoramique féerique garanti !
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0 border-t border-slate-100 mt-auto flex justify-between items-center text-xs font-semibold text-slate-500">
+            <span>Expérience inoubliable</span>
+            <span class="text-forest-800">Aérien</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 3: HÉBERGEMENTS -->
+    <!-- ========================================== -->
+    <section id="hebergements" class="scroll-mt-20">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-amber-700 font-bold text-xs uppercase tracking-widest bg-amber-100 px-3 py-1 rounded-full inline-block mb-3">Partie 3</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest-950 mb-4">Quelques Hébergements</h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          Des choix adaptés à tous les budgets pour votre séjour en Lituanie.
+        </p>
+      </div>
+
+      <!-- Budget Tiers Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Budget Option 1: Petit Budget -->
+        <div class="bg-white rounded-2xl border-2 border-slate-200 hover:border-amber-500 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group relative">
+          <div>
+            <div class="relative h-48 overflow-hidden">
+              <img id="img-acc-1" src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=600&q=80" alt="Auberge de Jeunesse" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Hostel+Vilnius'">
+              <button onclick="openImageModal('img-acc-1')" class="edit-control absolute top-3 right-3 bg-slate-900/70 hover:bg-slate-900 text-white text-xs px-2 py-1 rounded border border-white/20">
+                <i class="fa-solid fa-camera"></i>
+              </button>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-center mb-3">
+                <span class="bg-emerald-100 text-emerald-800 font-extrabold text-xs px-3 py-1 rounded-full">
+                  <i class="fa-solid fa-coins"></i> Petit Budget
+                </span>
+                <span class="font-serif font-bold text-2xl text-forest-900">15€ - 35€ <span class="text-xs text-slate-500 font-sans font-normal">/nuit</span></span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-slate-900 mb-2">Downtown Forest Hostel & Camping</h3>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                Charmante auberge située dans le quartier artistique d'Užupis. Ambiance conviviale, jardin verdoyant et dortoirs ou chambres privées très propres.
+              </p>
+              <ul class="text-xs text-slate-600 space-y-2 border-t border-slate-100 pt-4">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-wifi text-forest-800"></i> Wi-Fi haut débit gratuit</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-mug-hot text-forest-800"></i> Cuisine commune équipée</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-forest-800"></i> À 10 min du centre historique</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button class="w-full bg-slate-100 hover:bg-forest-900 hover:text-amber-300 text-slate-800 font-semibold py-2.5 rounded-xl text-sm transition">
+              Réserver (Auberge)
+            </button>
+          </div>
+        </div>
+
+        <!-- Budget Option 2: Moyen Budget -->
+        <div class="bg-white rounded-2xl border-2 border-amber-500/60 shadow-lg hover:shadow-2xl transition-all overflow-hidden flex flex-col justify-between group relative transform md:-translate-y-2">
+          <div class="bg-amber-600 text-white text-[11px] font-bold text-center py-1 uppercase tracking-wider">
+            ★ Choix Recommandé
+          </div>
+          <div>
+            <div class="relative h-48 overflow-hidden">
+              <img id="img-acc-2" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" alt="Hôtel de charme" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Hotel+Charme'">
+              <button onclick="openImageModal('img-acc-2')" class="edit-control absolute top-3 right-3 bg-slate-900/70 hover:bg-slate-900 text-white text-xs px-2 py-1 rounded border border-white/20">
+                <i class="fa-solid fa-camera"></i>
+              </button>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-center mb-3">
+                <span class="bg-amber-100 text-amber-800 font-extrabold text-xs px-3 py-1 rounded-full">
+                  <i class="fa-solid fa-coins"></i> Moyen Budget
+                </span>
+                <span class="font-serif font-bold text-2xl text-forest-900">60€ - 110€ <span class="text-xs text-slate-500 font-sans font-normal">/nuit</span></span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-slate-900 mb-2">Art Hotel Moon Garden</h3>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                Hôtel boutique élégant avec poutres apparentes et décoration raffinée, situé à deux pas de la célèbre Porte de l'Aurore à Vilnius.
+              </p>
+              <ul class="text-xs text-slate-600 space-y-2 border-t border-slate-100 pt-4">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-utensils text-amber-600"></i> Petit-déjeuner buffet inclus</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-bed text-amber-600"></i> Chambres spacieuses de caractère</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-square-parking text-amber-600"></i> Parking sécurisé privé</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button class="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2.5 rounded-xl text-sm transition shadow">
+              Réserver (Hôtel Boutique)
+            </button>
+          </div>
+        </div>
+
+        <!-- Budget Option 3: Gros Budget -->
+        <div class="bg-white rounded-2xl border-2 border-slate-200 hover:border-amber-500 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group relative">
+          <div>
+            <div class="relative h-48 overflow-hidden">
+              <img id="img-acc-3" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80" alt="Resort de Luxe & Spa" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Grand+Hotel+Spa'">
+              <button onclick="openImageModal('img-acc-3')" class="edit-control absolute top-3 right-3 bg-slate-900/70 hover:bg-slate-900 text-white text-xs px-2 py-1 rounded border border-white/20">
+                <i class="fa-solid fa-camera"></i>
+              </button>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-center mb-3">
+                <span class="bg-purple-100 text-purple-800 font-extrabold text-xs px-3 py-1 rounded-full">
+                  <i class="fa-solid fa-crown"></i> Gros Budget
+                </span>
+                <span class="font-serif font-bold text-2xl text-forest-900">180€ - 350€ <span class="text-xs text-slate-500 font-sans font-normal">/nuit</span></span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-slate-900 mb-2">Grand Hotel Kempinski / SPA Vilnius</h3>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                Etablissement 5 étoiles avec vue imprenable sur la place de la Cathédrale ou complexe thermale à Druskininkai pour un confort absolu.
+              </p>
+              <ul class="text-xs text-slate-600 space-y-2 border-t border-slate-100 pt-4">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-spa text-purple-700"></i> Spa luxueux & piscine thermale</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-champagne-glasses text-purple-700"></i> Gastronomie gastronomique</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-concierge-bell text-purple-700"></i> Service conciergerie 24/7</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button class="w-full bg-slate-100 hover:bg-forest-900 hover:text-amber-300 text-slate-800 font-semibold py-2.5 rounded-xl text-sm transition">
+              Réserver (Luxe 5 Stars)
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-forest-950 text-white border-t border-forest-900 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <div class="flex items-center justify-center gap-2 text-amber-500 font-serif font-bold text-2xl">
+        <i class="fa-solid fa-tree"></i> La Lituanie
+      </div>
+      <p class="text-xs text-slate-400 max-w-md mx-auto">
+        Brochure touristique réalisée pour le projet d'apprentissage du français - Salon du Tourisme.
+      </p>
+      <div class="pt-4 text-[11px] text-slate-500 border-t border-white/10">
+        Source photo & contenu : Projet classe de français.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- MODAL: IMAGE REPLACEMENT SYSTEM -->
+  <!-- ========================================== -->
+  <div id="image-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="font-serif font-bold text-lg text-slate-900">Changer l'image</h3>
+        <button onclick="closeImageModal()" class="text-slate-400 hover:text-slate-600 p-1">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Option A: File Upload -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-2">1. Téléverser une photo locale</label>
+          <input type="file" id="modal-file-input" accept="image/*" class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-forest-900 file:text-amber-300 hover:file:bg-forest-800 cursor-pointer border border-slate-200 rounded-xl p-1">
+        </div>
+
+        <div class="relative flex py-1 items-center">
+          <div class="flex-grow border-t border-slate-200"></div>
+          <span class="flex-shrink mx-3 text-xs text-slate-400 font-medium">OU</span>
+          <div class="flex-grow border-t border-slate-200"></div>
+        </div>
+
+        <!-- Option B: Image URL -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-2">2. Lien d'image (URL Web)</label>
+          <input type="url" id="modal-url-input" placeholder="https://exemple.com/image.jpg" class="w-full text-xs p-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-forest-800 focus:outline-none">
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex gap-3 pt-2">
+          <button onclick="applyImageChange()" class="flex-1 bg-forest-900 hover:bg-forest-800 text-amber-300 font-bold py-2.5 rounded-xl text-sm transition">
+            Appliquer
+          </button>
+          <button onclick="closeImageModal()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2.5 rounded-xl text-sm transition">
+            Annuler
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    let activeTargetImageId = null;
+
+    // Filter Activities Logic
+    function filterActivities(category) {
+      const cards = document.querySelectorAll('.activity-card');
+      const tabs = document.querySelectorAll('.activity-tab-btn');
+
+      // Update button styles
+      tabs.forEach(tab => {
+        if (tab.getAttribute('data-category') === category) {
+          tab.classList.add('bg-forest-900', 'text-amber-300', 'shadow-sm');
+          tab.classList.remove('bg-white', 'text-slate-700');
+        } else {
+          tab.classList.remove('bg-forest-900', 'text-amber-300', 'shadow-sm');
+          tab.classList.add('bg-white', 'text-slate-700');
+        }
+      });
+
+      // Filter cards
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Modal Image Uploader Logic
+    function openImageModal(imageId) {
+      activeTargetImageId = imageId;
+      document.getElementById('modal-url-input').value = '';
+      document.getElementById('modal-file-input').value = '';
+      document.getElementById('image-modal').classList.remove('hidden');
+    }
+
+    function closeImageModal() {
+      document.getElementById('image-modal').classList.add('hidden');
+      activeTargetImageId = null;
+    }
+
+    function applyImageChange() {
+      if (!activeTargetImageId) return;
+      const targetImg = document.getElementById(activeTargetImageId);
+      if (!targetImg) return;
+
+      const fileInput = document.getElementById('modal-file-input');
+      const urlInput = document.getElementById('modal-url-input');
+
+      if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          targetImg.src = e.target.result;
+          closeImageModal();
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+      } else if (urlInput.value.trim() !== '') {
+        targetImg.src = urlInput.value.trim();
+        closeImageModal();
+      } else {
+        closeImageModal();
+      }
+    }
+
+    // Toggle Presentation Mode (for classroom exhibit)
+    function togglePresentationMode() {
+      document.body.classList.toggle('presentation-mode');
+    }
+  </script>
+</body>
+</html>
