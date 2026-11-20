@@ -8,7 +8,7 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Google Fonts & FontAwesome -->
+  <!-- Google Fonts & FontAwesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
@@ -51,38 +51,15 @@
       color: #1e293b;
     }
 
-    /* Custom Glassmorphism & Shadows */
+    /* Glassmorphism utility */
     .glass-card {
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.6);
     }
-    
-    .amber-gradient {
-      background: linear-gradient(135deg, #052e16 0%, #14532d 50%, #b45309 100%);
-    }
-
-    /* Hide edit elements during Salon presentation mode */
-    body.presentation-mode .edit-control,
-    body.presentation-mode .edit-banner {
-      display: none !important;
-    }
   </style>
 </head>
 <body class="font-sans antialiased text-slate-800 selection:bg-amber-500 selection:text-white">
-
-  <!-- TOP NOTICE BANNER (ASSIGNMENT CONTEXT) -->
-  <div class="edit-banner bg-forest-950 text-amber-100 text-xs sm:text-sm py-2 px-4 text-center border-b border-forest-800 flex justify-between items-center flex-wrap gap-2">
-    <div class="flex items-center gap-2 mx-auto">
-      <span class="bg-amber-600 text-white text-xs font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">Projet Scolaire</span>
-      <span>Salon du Tourisme - Brochure sur la <strong>Lituanie</strong></span>
-    </div>
-    <div class="flex items-center gap-2 text-xs">
-      <button onclick="togglePresentationMode()" class="bg-amber-600 hover:bg-amber-500 text-white font-medium px-3 py-1 rounded-md transition flex items-center gap-1.5 shadow-sm">
-        <i class="fa-solid fa-expand"></i> Mode Présentation / Stand
-      </button>
-    </div>
-  </div>
 
   <!-- NAVIGATION BAR -->
   <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all">
@@ -94,12 +71,12 @@
             <i class="fa-solid fa-tree"></i>
           </div>
           <div>
-            <span class="font-serif font-bold text-lg sm:text-xl text-forest-950 block leading-tight">Lituanie</span>
-            <span class="text-[10px] text-amber-700 tracking-wider font-semibold uppercase block">Joyau de la Baltique</span>
+            <span class="font-serif font-bold text-lg sm:text-xl text-forest-950 block leading-tight">La Lituanie</span>
+            <span class="text-[10px] text-amber-700 tracking-wider font-semibold uppercase block">Brochure Touristique</span>
           </div>
         </a>
 
-        <!-- Desktop Menu -->
+        <!-- Navigation Links -->
         <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
           <a href="#presentation" class="text-slate-600 hover:text-forest-800 transition flex items-center gap-1.5">
             <i class="fa-solid fa-compass text-amber-600"></i> Présentation
@@ -114,9 +91,6 @@
 
         <!-- CTA Action -->
         <div class="flex items-center gap-3">
-          <button onclick="togglePresentationMode()" class="edit-control hidden sm:flex items-center gap-2 border border-slate-300 hover:border-forest-800 text-slate-700 px-3.5 py-1.5 rounded-lg text-sm font-semibold transition bg-slate-50 hover:bg-white">
-            <i class="fa-solid fa-desktop text-forest-800"></i> Stand Mode
-          </button>
           <a href="#activites" class="bg-forest-900 hover:bg-forest-800 text-amber-400 font-semibold px-4 py-2 rounded-lg text-sm shadow-md hover:shadow-lg transition flex items-center gap-2">
             <span>Explorer</span>
             <i class="fa-solid fa-arrow-right text-xs"></i>
@@ -126,20 +100,19 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
+  <!-- HERO HEADER SECTION -->
   <header class="relative bg-forest-950 text-white overflow-hidden">
-    <!-- Background Image with Overlay -->
+    
+    <!-- REMPLACER L'IMAGE DE COUVERTURE ICI : changez le lien dans src="..." ci-dessous -->
     <div class="absolute inset-0 z-0 opacity-40 mix-blend-overlay">
-      <img id="hero-img" src="https://images.unsplash.com/photo-1549877452-9c387954fbc2?auto=format&fit=crop&w=1600&q=80" alt="Lithuania Trakai Castle" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/1600x900/14532d/ffffff?text=Lituanie+Paysage'">
+      <img src="https://images.unsplash.com/photo-1549877452-9c387954fbc2?auto=format&fit=crop&w=1600&q=80" 
+           alt="Château de Trakai Lituanie" 
+           class="w-full h-full object-cover" 
+           onerror="this.src='https://placehold.co/1600x900/14532d/ffffff?text=Lituanie+Couverture'">
     </div>
     
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36 flex flex-col items-start">
       
-      <!-- Change Photo Floating Action -->
-      <button onclick="openImageModal('hero-img')" class="edit-control mb-6 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white text-xs font-semibold px-3.5 py-1.5 rounded-full border border-white/30 transition flex items-center gap-2 shadow">
-        <i class="fa-solid fa-camera"></i> Changer la photo de couverture
-      </button>
-
       <span class="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-500/40 text-amber-300 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 backdrop-blur-sm">
         <i class="fa-solid fa-location-dot"></i> Europe du Nord • Pays Balte
       </span>
@@ -149,7 +122,7 @@
       </h1>
 
       <p class="text-slate-200 text-lg sm:text-xl max-w-2xl font-light mb-8 leading-relaxed">
-        Des châteaux médiévaux posés sur les lacs limpides aux dunes géantes de la Baltique, découvrez une destination enchantée aux mille légendes.
+        Des châteaux médiévaux posés sur des lacs limpides aux dunes géantes de la Baltique, découvrez une destination enchantée aux mille légendes.
       </p>
 
       <div class="flex flex-wrap gap-4">
@@ -195,7 +168,7 @@
       <!-- Section Header -->
       <div class="text-center max-w-3xl mx-auto mb-14">
         <span class="text-amber-700 font-bold text-xs uppercase tracking-widest bg-amber-100 px-3 py-1 rounded-full inline-block mb-3">Partie 1</span>
-        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest-950 mb-4">Présentation Générale de la Lituanie</h2>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest-950 mb-4">Présentation Générale de la Région</h2>
         <p class="text-slate-600 text-base sm:text-lg">
           Située au bord de la mer Baltique, la Lituanie séduit par l'élégance de son histoire, ses cités médiévales chaleureuses et sa nature préservée.
         </p>
@@ -207,11 +180,12 @@
         <!-- Main Card: Vilnius -->
         <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group">
           <div class="relative h-72 sm:h-80 overflow-hidden">
-            <img id="img-vilnius" src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=1000&q=80" alt="Ville de Vilnius" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/800x600/14532d/ffffff?text=Vilnius'">
+            <!-- REMPLACER L'IMAGE DE VILNIUS ICI : changez le lien dans src="..." ci-dessous -->
+            <img src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=1000&q=80" 
+                 alt="Ville de Vilnius" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
+                 onerror="this.src='https://placehold.co/800x600/14532d/ffffff?text=Vilnius'">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
-            <button onclick="openImageModal('img-vilnius')" class="edit-control absolute top-4 right-4 bg-slate-900/70 hover:bg-slate-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg border border-white/20 backdrop-blur-md transition flex items-center gap-1.5">
-              <i class="fa-solid fa-pen-to-square"></i> Modifier
-            </button>
             <div class="absolute bottom-6 left-6 right-6">
               <span class="bg-amber-500 text-slate-950 font-bold text-xs px-2.5 py-1 rounded-md mb-2 inline-block">Ville Principale & Capitale</span>
               <h3 class="font-serif text-3xl font-bold text-white">Vilnius, la Perle Baroque</h3>
@@ -238,12 +212,13 @@
         <div class="lg:col-span-5 flex flex-col gap-6">
           
           <!-- Nature Highlight 1 -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-md p-5 flex gap-4 items-center hover:border-forest-800/40 transition group relative">
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-md p-5 flex gap-4 items-center hover:border-forest-800/40 transition group">
             <div class="relative w-32 h-32 rounded-xl overflow-hidden flex-shrink-0">
-              <img id="img-landscape-1" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80" alt="Isthme de Courlande" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.src='https://placehold.co/400x400/166534/ffffff?text=Courlande'">
-              <button onclick="openImageModal('img-landscape-1')" class="edit-control absolute inset-0 bg-slate-900/60 text-white opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-xs font-medium">
-                <i class="fa-solid fa-camera"></i>
-              </button>
+              <!-- REMPLACER L'IMAGE DE COURLANDE ICI : changez le lien dans src="..." ci-dessous -->
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80" 
+                   alt="Isthme de Courlande" 
+                   class="w-full h-full object-cover group-hover:scale-110 transition duration-300" 
+                   onerror="this.src='https://placehold.co/400x400/166534/ffffff?text=Courlande'">
             </div>
             <div class="space-y-1">
               <span class="text-[11px] font-bold text-amber-700 uppercase tracking-wider">Paysages Maritimes</span>
@@ -255,18 +230,19 @@
           </div>
 
           <!-- Nature Highlight 2 -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-md p-5 flex gap-4 items-center hover:border-forest-800/40 transition group relative">
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-md p-5 flex gap-4 items-center hover:border-forest-800/40 transition group">
             <div class="relative w-32 h-32 rounded-xl overflow-hidden flex-shrink-0">
-              <img id="img-landscape-2" src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=500&q=80" alt="Lacs de Trakai" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.src='https://placehold.co/400x400/166534/ffffff?text=Lacs+Trakai'">
-              <button onclick="openImageModal('img-landscape-2')" class="edit-control absolute inset-0 bg-slate-900/60 text-white opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-xs font-medium">
-                <i class="fa-solid fa-camera"></i>
-              </button>
+              <!-- REMPLACER L'IMAGE DE TRAKAI NORMALE ICI : changez le lien dans src="..." ci-dessous -->
+              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=500&q=80" 
+                   alt="Lacs de Trakai" 
+                   class="w-full h-full object-cover group-hover:scale-110 transition duration-300" 
+                   onerror="this.src='https://placehold.co/400x400/166534/ffffff?text=Lacs+Trakai'">
             </div>
             <div class="space-y-1">
               <span class="text-[11px] font-bold text-amber-700 uppercase tracking-wider">Parcs & Lacs</span>
               <h4 class="font-serif font-bold text-lg text-slate-900">Le Parc National de Trakai</h4>
               <p class="text-xs text-slate-600 leading-relaxed">
-                Une région aux 200 lac splendides entourés de denses forêts de pins verdoyantes.
+                Une région aux 200 lacs splendides entourés de denses forêts de pins verdoyantes.
               </p>
             </div>
           </div>
@@ -274,13 +250,13 @@
           <!-- Quick Practical Info Box -->
           <div class="bg-gradient-to-r from-forest-900 to-forest-950 rounded-2xl p-6 text-white shadow-lg space-y-3">
             <h4 class="font-serif font-bold text-amber-400 flex items-center gap-2 text-base">
-              <i class="fa-solid fa-circle-info text-amber-500"></i> Infos Pratiques aux Voyageurs
+              <i class="fa-solid fa-circle-info text-amber-500"></i> Infos Pratiques
             </h4>
             <div class="grid grid-cols-2 gap-3 text-xs text-slate-200">
-              <div><strong>Langue :</strong> Lituanien (Anglais/Français répandus)</div>
+              <div><strong>Langue :</strong> Lituanien</div>
               <div><strong>Monnaie :</strong> Euro (€)</div>
-              <div><strong>Membre :</strong> Union Européenne / Schengen</div>
-              <div><strong>Décalage :</strong> UTC+2 (1h avant la France)</div>
+              <div><strong>Membre :</strong> Union Européenne</div>
+              <div><strong>Fuseau :</strong> UTC+2</div>
             </div>
           </div>
 
@@ -327,11 +303,12 @@
         <div class="activity-card bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group" data-category="visite">
           <div>
             <div class="relative h-56 overflow-hidden">
-              <img id="img-act-1" src="https://images.unsplash.com/photo-1549877452-9c387954fbc2?auto=format&fit=crop&w=600&q=80" alt="Château de Trakai" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Trakai'">
+              <!-- REMPLACER L'IMAGE DU CHÂTEAU DE TRAKAI ICI : changez le lien dans src="..." ci-dessous -->
+              <img src="https://images.unsplash.com/photo-1549877452-9c387954fbc2?auto=format&fit=crop&w=600&q=80" 
+                   alt="Château de Trakai" 
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
+                   onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Chateau+Trakai'">
               <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow">Visite</span>
-              <button onclick="openImageModal('img-act-1')" class="edit-control absolute top-4 right-4 bg-slate-900/70 hover:bg-slate-900 text-white text-xs px-2.5 py-1 rounded-md border border-white/20 backdrop-blur-md">
-                <i class="fa-solid fa-camera"></i>
-              </button>
             </div>
             <div class="p-6">
               <div class="flex items-center text-xs text-amber-700 font-semibold mb-2 gap-3">
@@ -345,8 +322,8 @@
             </div>
           </div>
           <div class="px-6 pb-6 pt-0 border-t border-slate-100 mt-auto flex justify-between items-center text-xs font-semibold text-slate-500">
-            <span>Recommandé en bateau à pédales</span>
-            <span class="text-forest-800">Must-See ★★★★★</span>
+            <span>Recommandé en bateau</span>
+            <span class="text-forest-800 font-bold">Must-See ★★★★★</span>
           </div>
         </div>
 
@@ -354,11 +331,12 @@
         <div class="activity-card bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group" data-category="visite">
           <div>
             <div class="relative h-56 overflow-hidden">
-              <img id="img-act-2" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Vieille Ville de Vilnius" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Vilnius+Vieille+Ville'">
+              <!-- REMPLACER L'IMAGE DE LA VIEILLE VILLE ICI : changez le lien dans src="..." ci-dessous -->
+              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" 
+                   alt="Vieille Ville de Vilnius" 
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
+                   onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Vilnius+Vieille+Ville'">
               <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow">Visite</span>
-              <button onclick="openImageModal('img-act-2')" class="edit-control absolute top-4 right-4 bg-slate-900/70 hover:bg-slate-900 text-white text-xs px-2.5 py-1 rounded-md border border-white/20 backdrop-blur-md">
-                <i class="fa-solid fa-camera"></i>
-              </button>
             </div>
             <div class="p-6">
               <div class="flex items-center text-xs text-amber-700 font-semibold mb-2 gap-3">
@@ -372,8 +350,8 @@
             </div>
           </div>
           <div class="px-6 pb-6 pt-0 border-t border-slate-100 mt-auto flex justify-between items-center text-xs font-semibold text-slate-500">
-            <span>Guide francophone disponible</span>
-            <span class="text-forest-800">Culture & Histoire</span>
+            <span>Guide francophone</span>
+            <span class="text-forest-800 font-bold">Culture & Histoire</span>
           </div>
         </div>
 
@@ -381,11 +359,12 @@
         <div class="activity-card bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group" data-category="culture">
           <div>
             <div class="relative h-56 overflow-hidden">
-              <img id="img-act-3" src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=600&q=80" alt="Colline des Croix" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Colline+des+Croix'">
+              <!-- REMPLACER L'IMAGE DE LA COLLINE DES CROIX ICI : changez le lien dans src="..." ci-dessous -->
+              <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=600&q=80" 
+                   alt="Colline des Croix" 
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
+                   onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Colline+des+Croix'">
               <span class="absolute top-4 left-4 bg-purple-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow">Culture</span>
-              <button onclick="openImageModal('img-act-3')" class="edit-control absolute top-4 right-4 bg-slate-900/70 hover:bg-slate-900 text-white text-xs px-2.5 py-1 rounded-md border border-white/20 backdrop-blur-md">
-                <i class="fa-solid fa-camera"></i>
-              </button>
             </div>
             <div class="p-6">
               <div class="flex items-center text-xs text-amber-700 font-semibold mb-2 gap-3">
@@ -400,7 +379,7 @@
           </div>
           <div class="px-6 pb-6 pt-0 border-t border-slate-100 mt-auto flex justify-between items-center text-xs font-semibold text-slate-500">
             <span>Site Unique UNESCO</span>
-            <span class="text-forest-800">Émotionnel</span>
+            <span class="text-forest-800 font-bold">Patrimoine</span>
           </div>
         </div>
 
@@ -408,11 +387,12 @@
         <div class="activity-card bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group" data-category="culture">
           <div>
             <div class="relative h-56 overflow-hidden">
-              <img id="img-act-4" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" alt="Dégustation Cepelinai" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Gastronomie+Lituanienne'">
+              <!-- REMPLACER L'IMAGE DE LA GASTRONOMIE ICI : changez le lien dans src="..." ci-dessous -->
+              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" 
+                   alt="Dégustation Cepelinai" 
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
+                   onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Gastronomie+Lituanienne'">
               <span class="absolute top-4 left-4 bg-purple-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow">Culture</span>
-              <button onclick="openImageModal('img-act-4')" class="edit-control absolute top-4 right-4 bg-slate-900/70 hover:bg-slate-900 text-white text-xs px-2.5 py-1 rounded-md border border-white/20 backdrop-blur-md">
-                <i class="fa-solid fa-camera"></i>
-              </button>
             </div>
             <div class="p-6">
               <div class="flex items-center text-xs text-amber-700 font-semibold mb-2 gap-3">
@@ -427,7 +407,7 @@
           </div>
           <div class="px-6 pb-6 pt-0 border-t border-slate-100 mt-auto flex justify-between items-center text-xs font-semibold text-slate-500">
             <span>À goûter impérativement</span>
-            <span class="text-forest-800">Gourmand</span>
+            <span class="text-forest-800 font-bold">Gourmand</span>
           </div>
         </div>
 
@@ -435,11 +415,12 @@
         <div class="activity-card bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group" data-category="sport">
           <div>
             <div class="relative h-56 overflow-hidden">
-              <img id="img-act-5" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Isthme de Courlande Vélo" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Nature+Curonian+Spit'">
+              <!-- REMPLACER L'IMAGE DU VÉLO SUR L'ISTHME ICI : changez le lien dans src="..." ci-dessous -->
+              <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" 
+                   alt="Isthme de Courlande Vélo" 
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
+                   onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Nature+Curonian+Spit'">
               <span class="absolute top-4 left-4 bg-emerald-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow">Sport & Nature</span>
-              <button onclick="openImageModal('img-act-5')" class="edit-control absolute top-4 right-4 bg-slate-900/70 hover:bg-slate-900 text-white text-xs px-2.5 py-1 rounded-md border border-white/20 backdrop-blur-md">
-                <i class="fa-solid fa-camera"></i>
-              </button>
             </div>
             <div class="p-6">
               <div class="flex items-center text-xs text-amber-700 font-semibold mb-2 gap-3">
@@ -453,8 +434,8 @@
             </div>
           </div>
           <div class="px-6 pb-6 pt-0 border-t border-slate-100 mt-auto flex justify-between items-center text-xs font-semibold text-slate-500">
-            <span>Location de vélo facile</span>
-            <span class="text-forest-800">Grand Air</span>
+            <span>Pistes faciles</span>
+            <span class="text-forest-800 font-bold">Grand Air</span>
           </div>
         </div>
 
@@ -462,11 +443,12 @@
         <div class="activity-card bg-white rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group" data-category="sport">
           <div>
             <div class="relative h-56 overflow-hidden">
-              <img id="img-act-6" src="https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?auto=format&fit=crop&w=600&q=80" alt="Vol en montgolfière" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Montgolfiere+Vilnius'">
+              <!-- REMPLACER L'IMAGE DE LA MONTGOLFIÈRE ICI : changez le lien dans src="..." ci-dessous -->
+              <img src="https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?auto=format&fit=crop&w=600&q=80" 
+                   alt="Vol en montgolfière" 
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
+                   onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Montgolfiere+Vilnius'">
               <span class="absolute top-4 left-4 bg-emerald-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow">Sport & Nature</span>
-              <button onclick="openImageModal('img-act-6')" class="edit-control absolute top-4 right-4 bg-slate-900/70 hover:bg-slate-900 text-white text-xs px-2.5 py-1 rounded-md border border-white/20 backdrop-blur-md">
-                <i class="fa-solid fa-camera"></i>
-              </button>
             </div>
             <div class="p-6">
               <div class="flex items-center text-xs text-amber-700 font-semibold mb-2 gap-3">
@@ -475,13 +457,13 @@
               </div>
               <h3 class="font-serif font-bold text-xl text-slate-900 mb-2">Vol en Montgolfière au Coucher de Soleil</h3>
               <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                Vilnius est l'une des rares capitales européennes à autoriser le survol en montgolfière. Une vue panoramique féerique garanti !
+                Vilnius est l'une des rares capitales européennes à autoriser le survol en montgolfière. Une vue panoramique féerique garantie !
               </p>
             </div>
           </div>
           <div class="px-6 pb-6 pt-0 border-t border-slate-100 mt-auto flex justify-between items-center text-xs font-semibold text-slate-500">
-            <span>Expérience inoubliable</span>
-            <span class="text-forest-800">Aérien</span>
+            <span>Survol unique</span>
+            <span class="text-forest-800 font-bold">Aérien</span>
           </div>
         </div>
 
@@ -499,7 +481,7 @@
         <span class="text-amber-700 font-bold text-xs uppercase tracking-widest bg-amber-100 px-3 py-1 rounded-full inline-block mb-3">Partie 3</span>
         <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest-950 mb-4">Quelques Hébergements</h2>
         <p class="text-slate-600 text-base sm:text-lg">
-          Des choix adaptés à tous les budgets pour votre séjour en Lituanie.
+          Des choix sélectionnés adaptées à tous les budgets pour votre séjour en Lituanie.
         </p>
       </div>
 
@@ -507,13 +489,14 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <!-- Budget Option 1: Petit Budget -->
-        <div class="bg-white rounded-2xl border-2 border-slate-200 hover:border-amber-500 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group relative">
+        <div class="bg-white rounded-2xl border-2 border-slate-200 hover:border-amber-500 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group">
           <div>
             <div class="relative h-48 overflow-hidden">
-              <img id="img-acc-1" src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=600&q=80" alt="Auberge de Jeunesse" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Hostel+Vilnius'">
-              <button onclick="openImageModal('img-acc-1')" class="edit-control absolute top-3 right-3 bg-slate-900/70 hover:bg-slate-900 text-white text-xs px-2 py-1 rounded border border-white/20">
-                <i class="fa-solid fa-camera"></i>
-              </button>
+              <!-- REMPLACER L'IMAGE HÉBERGEMENT PETIT BUDGET ICI : changez le lien dans src="..." ci-dessous -->
+              <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=600&q=80" 
+                   alt="Auberge de Jeunesse Vilnius" 
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
+                   onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Hostel+Vilnius'">
             </div>
             <div class="p-6">
               <div class="flex justify-between items-center mb-3">
@@ -534,23 +517,24 @@
             </div>
           </div>
           <div class="p-6 pt-0">
-            <button class="w-full bg-slate-100 hover:bg-forest-900 hover:text-amber-300 text-slate-800 font-semibold py-2.5 rounded-xl text-sm transition">
-              Réserver (Auberge)
-            </button>
+            <div class="w-full bg-slate-100 text-slate-700 font-semibold py-2.5 rounded-xl text-xs text-center border border-slate-200">
+              Idéal jeunes & étudiants
+            </div>
           </div>
         </div>
 
         <!-- Budget Option 2: Moyen Budget -->
-        <div class="bg-white rounded-2xl border-2 border-amber-500/60 shadow-lg hover:shadow-2xl transition-all overflow-hidden flex flex-col justify-between group relative transform md:-translate-y-2">
+        <div class="bg-white rounded-2xl border-2 border-amber-500/80 shadow-lg hover:shadow-2xl transition-all overflow-hidden flex flex-col justify-between group transform md:-translate-y-2">
           <div class="bg-amber-600 text-white text-[11px] font-bold text-center py-1 uppercase tracking-wider">
             ★ Choix Recommandé
           </div>
           <div>
             <div class="relative h-48 overflow-hidden">
-              <img id="img-acc-2" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" alt="Hôtel de charme" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Hotel+Charme'">
-              <button onclick="openImageModal('img-acc-2')" class="edit-control absolute top-3 right-3 bg-slate-900/70 hover:bg-slate-900 text-white text-xs px-2 py-1 rounded border border-white/20">
-                <i class="fa-solid fa-camera"></i>
-              </button>
+              <!-- REMPLACER L'IMAGE HÉBERGEMENT MOYEN BUDGET ICI : changez le lien dans src="..." ci-dessous -->
+              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" 
+                   alt="Hôtel de charme Vilnius" 
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
+                   onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Hotel+Charme'">
             </div>
             <div class="p-6">
               <div class="flex justify-between items-center mb-3">
@@ -571,20 +555,21 @@
             </div>
           </div>
           <div class="p-6 pt-0">
-            <button class="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2.5 rounded-xl text-sm transition shadow">
-              Réserver (Hôtel Boutique)
-            </button>
+            <div class="w-full bg-amber-600 text-white font-semibold py-2.5 rounded-xl text-xs text-center shadow">
+              Rapport qualité-prix idéal
+            </div>
           </div>
         </div>
 
         <!-- Budget Option 3: Gros Budget -->
-        <div class="bg-white rounded-2xl border-2 border-slate-200 hover:border-amber-500 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group relative">
+        <div class="bg-white rounded-2xl border-2 border-slate-200 hover:border-amber-500 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group">
           <div>
             <div class="relative h-48 overflow-hidden">
-              <img id="img-acc-3" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80" alt="Resort de Luxe & Spa" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Grand+Hotel+Spa'">
-              <button onclick="openImageModal('img-acc-3')" class="edit-control absolute top-3 right-3 bg-slate-900/70 hover:bg-slate-900 text-white text-xs px-2 py-1 rounded border border-white/20">
-                <i class="fa-solid fa-camera"></i>
-              </button>
+              <!-- REMPLACER L'IMAGE HÉBERGEMENT GROS BUDGET ICI : changez le lien dans src="..." ci-dessous -->
+              <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80" 
+                   alt="Resort de Luxe & Spa" 
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
+                   onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Grand+Hotel+Spa'">
             </div>
             <div class="p-6">
               <div class="flex justify-between items-center mb-3">
@@ -595,19 +580,19 @@
               </div>
               <h3 class="font-serif font-bold text-xl text-slate-900 mb-2">Grand Hotel Kempinski / SPA Vilnius</h3>
               <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
-                Etablissement 5 étoiles avec vue imprenable sur la place de la Cathédrale ou complexe thermale à Druskininkai pour un confort absolu.
+                Établissement 5 étoiles avec vue imprenable sur la place de la Cathédrale ou complexe thermale à Druskininkai pour un confort absolu.
               </p>
               <ul class="text-xs text-slate-600 space-y-2 border-t border-slate-100 pt-4">
                 <li class="flex items-center gap-2"><i class="fa-solid fa-spa text-purple-700"></i> Spa luxueux & piscine thermale</li>
-                <li class="flex items-center gap-2"><i class="fa-solid fa-champagne-glasses text-purple-700"></i> Gastronomie gastronomique</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-champagne-glasses text-purple-700"></i> Gastronomie raffinée</li>
                 <li class="flex items-center gap-2"><i class="fa-solid fa-concierge-bell text-purple-700"></i> Service conciergerie 24/7</li>
               </ul>
             </div>
           </div>
           <div class="p-6 pt-0">
-            <button class="w-full bg-slate-100 hover:bg-forest-900 hover:text-amber-300 text-slate-800 font-semibold py-2.5 rounded-xl text-sm transition">
-              Réserver (Luxe 5 Stars)
-            </button>
+            <div class="w-full bg-slate-100 text-slate-700 font-semibold py-2.5 rounded-xl text-xs text-center border border-slate-200">
+              Confort & Luxe 5 Étoiles
+            </div>
           </div>
         </div>
 
@@ -624,68 +609,21 @@
         <i class="fa-solid fa-tree"></i> La Lituanie
       </div>
       <p class="text-xs text-slate-400 max-w-md mx-auto">
-        Brochure touristique réalisée pour le projet d'apprentissage du français - Salon du Tourisme.
+        Brochure touristique réalisée pour le projet d'apprentissage du français.
       </p>
       <div class="pt-4 text-[11px] text-slate-500 border-t border-white/10">
-        Source photo & contenu : Projet classe de français.
+        © Projet scolaire - Brochure Touristique
       </div>
     </div>
   </footer>
 
-  <!-- ========================================== -->
-  <!-- MODAL: IMAGE REPLACEMENT SYSTEM -->
-  <!-- ========================================== -->
-  <div id="image-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="font-serif font-bold text-lg text-slate-900">Changer l'image</h3>
-        <button onclick="closeImageModal()" class="text-slate-400 hover:text-slate-600 p-1">
-          <i class="fa-solid fa-xmark text-xl"></i>
-        </button>
-      </div>
-
-      <div class="space-y-4">
-        <!-- Option A: File Upload -->
-        <div>
-          <label class="block text-xs font-bold text-slate-700 uppercase mb-2">1. Téléverser une photo locale</label>
-          <input type="file" id="modal-file-input" accept="image/*" class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-forest-900 file:text-amber-300 hover:file:bg-forest-800 cursor-pointer border border-slate-200 rounded-xl p-1">
-        </div>
-
-        <div class="relative flex py-1 items-center">
-          <div class="flex-grow border-t border-slate-200"></div>
-          <span class="flex-shrink mx-3 text-xs text-slate-400 font-medium">OU</span>
-          <div class="flex-grow border-t border-slate-200"></div>
-        </div>
-
-        <!-- Option B: Image URL -->
-        <div>
-          <label class="block text-xs font-bold text-slate-700 uppercase mb-2">2. Lien d'image (URL Web)</label>
-          <input type="url" id="modal-url-input" placeholder="https://exemple.com/image.jpg" class="w-full text-xs p-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-forest-800 focus:outline-none">
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="flex gap-3 pt-2">
-          <button onclick="applyImageChange()" class="flex-1 bg-forest-900 hover:bg-forest-800 text-amber-300 font-bold py-2.5 rounded-xl text-sm transition">
-            Appliquer
-          </button>
-          <button onclick="closeImageModal()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2.5 rounded-xl text-sm transition">
-            Annuler
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- JAVASCRIPT LOGIC -->
+  <!-- JAVASCRIPT LOGIC (ONLY CATEGORY FILTERING) -->
   <script>
-    let activeTargetImageId = null;
-
-    // Filter Activities Logic
     function filterActivities(category) {
       const cards = document.querySelectorAll('.activity-card');
       const tabs = document.querySelectorAll('.activity-tab-btn');
 
-      // Update button styles
+      // Update active button styles
       tabs.forEach(tab => {
         if (tab.getAttribute('data-category') === category) {
           tab.classList.add('bg-forest-900', 'text-amber-300', 'shadow-sm');
@@ -696,7 +634,7 @@
         }
       });
 
-      // Filter cards
+      // Show/hide cards matching category
       cards.forEach(card => {
         if (category === 'all' || card.getAttribute('data-category') === category) {
           card.style.display = 'flex';
@@ -704,47 +642,6 @@
           card.style.display = 'none';
         }
       });
-    }
-
-    // Modal Image Uploader Logic
-    function openImageModal(imageId) {
-      activeTargetImageId = imageId;
-      document.getElementById('modal-url-input').value = '';
-      document.getElementById('modal-file-input').value = '';
-      document.getElementById('image-modal').classList.remove('hidden');
-    }
-
-    function closeImageModal() {
-      document.getElementById('image-modal').classList.add('hidden');
-      activeTargetImageId = null;
-    }
-
-    function applyImageChange() {
-      if (!activeTargetImageId) return;
-      const targetImg = document.getElementById(activeTargetImageId);
-      if (!targetImg) return;
-
-      const fileInput = document.getElementById('modal-file-input');
-      const urlInput = document.getElementById('modal-url-input');
-
-      if (fileInput.files && fileInput.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          targetImg.src = e.target.result;
-          closeImageModal();
-        };
-        reader.readAsDataURL(fileInput.files[0]);
-      } else if (urlInput.value.trim() !== '') {
-        targetImg.src = urlInput.value.trim();
-        closeImageModal();
-      } else {
-        closeImageModal();
-      }
-    }
-
-    // Toggle Presentation Mode (for classroom exhibit)
-    function togglePresentationMode() {
-      document.body.classList.toggle('presentation-mode');
     }
   </script>
 </body>
